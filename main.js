@@ -16,7 +16,9 @@ const dealMd = async (mdFilePath) => {
 
     const localUrls = [];
     for await (const line of rl) {
-      const match = line.match(/!\[\]\((C:\\[^)]+)\)/);
+      //      const match = line.match(/!\[\]\((C:\\[^)]+)\)/);
+      const match = line.match(/!\[\]\((\/[^)]+)\)/);
+
       if (match) {
         localUrls.push(match[1]);
       }

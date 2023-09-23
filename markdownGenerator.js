@@ -5,7 +5,7 @@ const path = require('path');
 const processMarkdown = (originalMarkdown, uploadResult) => {
   let updatedMarkdown = originalMarkdown;
   for (let i = 0; i < uploadResult.length; i++) {
-    updatedMarkdown = updatedMarkdown.replace(/!\[\]\(C:\\[^)]+\)/, `![Image${i + 1}](${uploadResult[i]})`);
+    updatedMarkdown = updatedMarkdown.replace(/\!\[\]\((?:C:\\|\/)[^\s)]+(?:%[0-9A-Fa-f]{2})*\)/, `![Image${i + 1}](${uploadResult[i]})`);
   }
   return updatedMarkdown;
 };
